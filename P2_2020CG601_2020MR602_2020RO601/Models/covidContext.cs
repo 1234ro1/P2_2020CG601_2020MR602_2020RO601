@@ -7,7 +7,10 @@ namespace P2_2020CG601_2020MR602_2020RO601.Models
         public covidContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<P2_2020CG601_2020MR602_2020RO601.Models.Departamentos>? Departamentos { get; set; }
-        public DbSet<P2_2020CG601_2020MR602_2020RO601.Models.Generos>? Generos { get; set; }
+        public DbSet<CasosReportados> CasosReportados { get; set; }
+        public DbSet<Departamentos> Departamentos { get; set; }
+        public DbSet<Generos> Generos { get; set; }
+
+
     }
 }
