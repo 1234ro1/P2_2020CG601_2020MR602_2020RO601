@@ -4,12 +4,12 @@ using P2_2020CG601_2020MR602_2020RO601.Models;
 
 namespace P2_2020CG601_2020MR602_2020RO601.Controllers
 {
-    public class CasosReportados : Controller
+    public class CasosReportadosController : Controller
     {
         private readonly covidContext _covidContext;
-        public CasosReportados(covidContext covidContext)
+        public CasosReportadosController(covidContext covidContext)
         {
-            _covidContext= covidContext;
+            _covidContext = covidContext;
         }
         public IActionResult Index()
         {
@@ -24,19 +24,19 @@ namespace P2_2020CG601_2020MR602_2020RO601.Controllers
                                           on c.id_departamento equals d.id_departamento
                                           join g in _covidContext.Generos
                                           on c.id_genero equals g.id_genero
-                                          select new 
+                                          select new
                                           {
                                               departamento = d.nombre_departamento,
-                                              genero= g.nombre_genero,
+                                              genero = g.nombre_genero,
                                               confirmados = c.casosConfirmados,
-                                              recuperados= c.casosRecuperados,
-                                              fallecidos= c.casosFallecidos,
+                                              recuperados = c.casosRecuperados,
+                                              fallecidos = c.casosFallecidos,
                                           }).ToList();
             ViewData["listadoCasosReportados"] = listadoCasosReportados;
-            
+
             return View();
         }
-        public IActionResult crearRegistro (CasosReportados CasoNuevo) 
+        public IActionResult crearRegistro(CasosReportados CasoNuevo)
         {
             _covidContext.Add(CasoNuevo);
             _covidContext.SaveChanges();
@@ -44,3 +44,4 @@ namespace P2_2020CG601_2020MR602_2020RO601.Controllers
         }
     }
 }
+
