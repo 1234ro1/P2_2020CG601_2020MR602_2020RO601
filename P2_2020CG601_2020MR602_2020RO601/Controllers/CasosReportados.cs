@@ -11,7 +11,7 @@ namespace P2_2020CG601_2020MR602_2020RO601.Controllers
         {
             _covidContext= covidContext;
         }
-        public IActionResult indexx() 
+        public IActionResult index() 
         {
             var listadoDepartamentos = (from d in _covidContext.Departamentos select d).ToList();
             ViewData["listadoDepartamentos"] = new SelectList(listadoDepartamentos, "id_departamento", "nombre_departamento");
